@@ -1,0 +1,39 @@
+.btn {
+  padding: 1.6rem 4rem;
+  height: 2rem;
+  border-radius: 0;
+  border: none;
+  background: #c6cfda;
+  cursor: pointer;
+}
+
+.top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right {
+  top: 50%;
+  right: 0;
+  transform: translate(3.4rem, -50%) rotate(0.25turn);
+}
+
+.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(0.5turn);
+}
+
+.left {
+  top: 50%;
+  left: 0;
+  transform: translate(-3.4rem, -50%) rotate(0.75turn);
+}
+
+.wrapper {
+  overflow: visible;
+  position: relative;
+  min-width: 100vw;
+  min-height: calc(100vh - 12rem);
+}

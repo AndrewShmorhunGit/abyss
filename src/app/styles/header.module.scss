@@ -1,0 +1,59 @@
+.services {
+  gap: 1.2rem;
+  font-size: 2rem;
+}
+
+.amount {
+  background: #ffb840;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  color: white;
+  border-radius: 20% / 50%;
+}
+
+.main {
+  height: 12rem;
+  padding: 2rem 0rem;
+  max-width: 100vw;
+  margin: 0rem 4rem;
+  border-bottom: 1px solid lightgrey;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 1.2rem;
+  font-size: 1rem;
+  color: grey;
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+}
+.hover {
+  width: 6.8rem;
+  &:hover {
+    background: lightgray;
+  }
+}
+
+.primary {
+  background: #6977e2;
+  color: white;
+}
+
+.dropdown {
+  cursor: pointer;
+  text-align: center;
+  position: fixed;
+  z-index: 10;
+  transform: translate(0rem, 0.4rem);
+  gap: "0.4rem";
+  transition: "max-height 1.4s ease-in";
+}
+
+.hide {
+  display: none;
+}
