@@ -5,15 +5,8 @@ import { BtnSubmit } from "./lib/BtnSubmit";
 import { useCategoryForm } from "@/hooks/useCategoryForm";
 
 export function CategoryForm() {
-  const {
-    isAddCategory,
-    setIsAddCategory,
-    isName,
-    setName,
-    inputRef,
-    handleSubmit,
-    onChange,
-  } = useCategoryForm();
+  const { isAddCategory, setIsAddCategory, inputRef, handleSubmit, onChange } =
+    useCategoryForm();
 
   if (isAddCategory)
     return (

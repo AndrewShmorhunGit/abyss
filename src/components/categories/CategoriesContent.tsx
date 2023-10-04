@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
 import { CategoryForm } from "./CategoryForm";
-import { CategoryRoot } from "./CategoryRoot";
 import { Category } from "./Category";
 import { useCategoryForm } from "@/hooks/useCategoryForm";
 

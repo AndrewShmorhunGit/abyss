@@ -3,7 +3,7 @@ import styles from "@/app/styles/categories.module.scss";
 import { BtnPlus } from "./lib/BtnPlus";
 import { useCategoriesContext } from "@/providers/categories.context";
 
-export function CategoryRoot() {
+export function CategoriesRoot() {
   const { setIsAddCategory } = useCategoriesContext();
   return (
     <div className="center" style={{ gap: "1.2rem" }}>
