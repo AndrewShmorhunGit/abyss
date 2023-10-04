@@ -6,10 +6,10 @@ import { NavButton } from "./NavButton";
 import { PlusButton } from "./PlusButton";
 import { ScaleDropdown } from "./ScaleDropdown";
 import { MainButtonsWrapper, ButtonsWrapper } from "./Wrappers";
+import { useScale } from "@/hooks/useScale";
 
 export function ButtonsBlock() {
-  const [isActive, setIsActive] = React.useState(true);
-  const [isScale, setScale] = React.useState(100);
+  const { isActive, setIsActive, isScale, setScale } = useScale();
   return (
     <MainButtonsWrapper>
       <ButtonsWrapper>

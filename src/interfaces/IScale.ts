@@ -3,7 +3,7 @@ export interface IScaleOptions {
   setScale: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export interface IScaleSettings {
+export interface IScaleParams {
   isScale: number;
   setScale: React.Dispatch<React.SetStateAction<number>>;
   isActive: boolean;

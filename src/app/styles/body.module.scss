@@ -4,6 +4,7 @@
   border-radius: 0;
   border: none;
   background: #c6cfda;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -31,8 +32,14 @@
   transform: translate(-3.4rem, -50%) rotate(0.75turn);
 }
 
+.categories {
+  position: absolute;
+  width: 100rem;
+  height: 100rem;
+}
+
 .wrapper {
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   min-width: 100vw;
   min-height: calc(100vh - 12rem);

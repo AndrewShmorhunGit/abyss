@@ -2,24 +2,29 @@
 import React from "react";
 import styles from "@/app/styles/header.module.scss";
 import { Dropdown } from "./Dropdown";
-import { IScaleSettings } from "@/interfaces/IScale";
+import { IScaleParams } from "@/interfaces/IScale";
 export function ScaleDropdown({
   isScale,
   setScale,
   isActive,
   setIsActive,
-}: IScaleSettings) {
+}: IScaleParams) {
   return (
     <div>
-      <button className={styles.btn} onClick={() => setIsActive(!isActive)}>
+      <button
+        className={styles.btn}
+        onClick={() => (isActive ? "" : setIsActive(true))}
+      >
         {isScale}%
       </button>
-      <Dropdown
-        isScale={isScale}
-        setScale={setScale}
-        isActive={isActive}
-        setIsActive={setIsActive}
-      />
+      {isActive && (
+        <Dropdown
+          isScale={isScale}
+          setScale={setScale}
+          isActive={isActive}
+          setIsActive={setIsActive}
+        />
+      )}
     </div>
   );
 }
