@@ -2,13 +2,10 @@
 import React from "react";
 import styles from "@/app/styles/header.module.scss";
 import { Dropdown } from "./Dropdown";
-import { IScaleParams } from "@/interfaces/IScale";
-export function ScaleDropdown({
-  isScale,
-  setScale,
-  isActive,
-  setIsActive,
-}: IScaleParams) {
+import { useScaleContext } from "@/providers/scale.context";
+
+export function ScaleDropdown() {
+  const { isActive, setIsActive, isScale, setScale } = useScaleContext();
   return (
     <div>
       <button

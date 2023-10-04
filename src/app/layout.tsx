@@ -1,3 +1,4 @@
+import { AppProvider } from "@/components/app/AppProvider";
 import { AppWrapper } from "@/components/app/AppWrapper";
 import { Header } from "@/components/header/Header";
 import type { Metadata } from "next";
@@ -14,8 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <AppWrapper>
-      <Header />
-      {children}
+      <AppProvider>
+        <Header />
+        {children}
+      </AppProvider>
     </AppWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import styles from "@/app/styles/header.module.scss";
 import { ReactNode } from "react";
+
 export function HeaderWrapper({ children }: { children: ReactNode }) {
   return <div className={`space-between ${styles.main}`}>{children}</div>;
 }
