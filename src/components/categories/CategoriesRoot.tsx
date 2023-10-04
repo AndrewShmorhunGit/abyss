@@ -2,17 +2,27 @@
 import styles from "@/app/styles/categories.module.scss";
 import { BtnPlus } from "./lib/BtnPlus";
 import { useCategoriesContext } from "@/providers/categories.context";
+import { RootConnection } from "./lib/Connections";
 
 export function CategoriesRoot() {
-  const { setIsAddCategory } = useCategoriesContext();
+  const { setIsAddCategory, isCategories } = useCategoriesContext();
   return (
-    <div className="center" style={{ gap: "1.2rem" }}>
-      <div className={styles.categories}>Categories</div>
-      <BtnPlus
-        handler={() => {
-          setIsAddCategory(true);
-        }}
-      />
+    <div
+      style={{
+        borderBottom: isCategories.length > 1 ? "1px red solid" : "none",
+      }}
+    >
+      <div className="center" style={{ gap: "0.4rem" }}>
+        <div>
+          <div className={styles.categories}>Categories</div>
+        </div>
+        <BtnPlus
+          handler={() => {
+            setIsAddCategory(true);
+          }}
+        />
+      </div>
+      <RootConnection />
     </div>
   );
 }

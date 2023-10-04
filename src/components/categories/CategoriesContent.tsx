@@ -7,10 +7,11 @@ export function CategoriesContent() {
   const { isCategories } = useCategoryForm();
   return (
     <div className="center" style={{ flexDirection: "row", gap: "5rem" }}>
-      {isCategories.length &&
+      {isCategories.length !== 0 &&
         isCategories.map((category: string, index: number) => (
           <Category key={category + index} category={category} />
         ))}
+
       <CategoryForm />
     </div>
   );
