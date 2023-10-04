@@ -19,7 +19,7 @@ export function useScaleContext() {
   const context = useContext(ScaleContext);
   if (!context) {
     throw new Error(
-      "useScaleContext must be used within a ScaleCOntextProvider"
+      "useScaleContext must be used within a ScaleContextProvider"
     );
   }
   return context;

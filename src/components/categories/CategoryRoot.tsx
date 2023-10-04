@@ -1,33 +1,18 @@
-import { AiFillPlusCircle } from "react-icons/ai";
+"use client";
+import styles from "@/app/styles/categories.module.scss";
+import { BtnPlus } from "./lib/BtnPlus";
+import { useCategoriesContext } from "@/providers/categories.context";
 
-export function CategoryRoot({
-  setIsAddCategory,
-}: {
-  setIsAddCategory: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export function CategoryRoot() {
+  const { setIsAddCategory } = useCategoriesContext();
   return (
     <div className="center" style={{ gap: "1.2rem" }}>
-      <div
-        style={{
-          padding: "1.6rem 3.2rem",
-          border: "dashed 1px grey",
-          borderRadius: "0.8rem",
-          fontSize: "1.6rem",
-          fontWeight: 700,
+      <div className={styles.categories}>Categories</div>
+      <BtnPlus
+        handler={() => {
+          setIsAddCategory(true);
         }}
-      >
-        Categories
-      </div>
-      <div>
-        <AiFillPlusCircle
-          size={24}
-          fill={"lightgrey"}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setIsAddCategory(true);
-          }}
-        />
-      </div>
+      />
     </div>
   );
 }
