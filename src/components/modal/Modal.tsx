@@ -4,8 +4,10 @@ import React, { Dispatch, SetStateAction } from "react";
 
 export function Modal({
   setModal,
+  setIsAddSubCategory,
 }: {
   setModal: Dispatch<SetStateAction<boolean>>;
+  setIsAddSubCategory: Dispatch<SetStateAction<boolean>>;
 }) {
   const title = "What do you want to create?";
   const ref = React.useRef<HTMLDivElement | null>(null);
@@ -16,7 +18,10 @@ export function Modal({
       <div style={{ display: "flex", gap: "2rem" }}>
         <ModalButton
           title={"category"}
-          handler={() => console.log("service")}
+          handler={() => {
+            setIsAddSubCategory(true);
+            setModal(false);
+          }}
         />
         <ModalButton title={"service"} handler={() => console.log("service")} />
       </div>
@@ -29,15 +34,10 @@ export function ModalButton({
   handler,
 }: {
   title: string;
-  handler: Function;
+  handler: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <button
-      className={styles.btn}
-      onClick={() => {
-        handler;
-      }}
-    >
+    <button className={styles.btn} onClick={handler}>
       {title}
     </button>
   );

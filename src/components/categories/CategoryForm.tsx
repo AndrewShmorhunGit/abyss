@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import styles from "@/app/styles/categories.module.scss";
 import { BtnClose } from "./lib/BtnClose";
@@ -12,7 +12,7 @@ export function CategoryForm() {
 
   if (isAddCategory)
     return (
-      <div>
+      <div style={{ maxHeight: "0rem" }}>
         <Connection />
         <form
           onSubmit={handleSubmit}

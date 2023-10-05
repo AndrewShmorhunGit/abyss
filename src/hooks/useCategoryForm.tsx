@@ -22,7 +22,7 @@ export const useCategoryForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCategories([...isCategories, isName]);
+    setCategories([...isCategories, isName === "" ? "category" : isName]);
     setName("");
     setIsAddCategory(false);
     console.log("Category Name:", isName);

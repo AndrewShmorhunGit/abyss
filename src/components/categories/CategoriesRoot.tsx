@@ -10,7 +10,7 @@ export function CategoriesRoot() {
 
   return (
     <RootWrapper>
-      <div className="center gap">
+      <div className="center gap" style={{ transform: "translateX(1.2rem)" }}>
         <div>
           <div className={styles.categories}>Categories</div>
         </div>
