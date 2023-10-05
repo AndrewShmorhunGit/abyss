@@ -3,7 +3,7 @@ import React from "react";
 
 export function useLocalStorageState(
   key: string,
-  defaultValue: string[] | string | Function = [],
+  defaultValue: string[] | string | number | Function = [],
 
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
@@ -30,7 +30,7 @@ export function useLocalStorageState(
     }
     prevKeyRef.current = key;
     storage.setItem(key, serialize(state));
-  }, [key, state, serialize]);
+  }, [key, state, serialize, storage]);
 
   return { state, setState };
 }

@@ -4,8 +4,8 @@ export interface IScaleOptions {
 }
 
 export interface IScaleParams {
-  isScale: number;
-  setScale: React.Dispatch<React.SetStateAction<number>>;
+  isScale: string[];
+  setScale: React.Dispatch<React.SetStateAction<string[]>>;
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }

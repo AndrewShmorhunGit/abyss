@@ -23,14 +23,16 @@ export function Dropdown({
                 key={index}
                 className={styles.btn + " " + styles.hover}
                 style={{
-                  fontWeight: option === isScale ? 800 : 500,
+                  fontWeight: option === +isScale[0] ? 800 : 500,
                 }}
                 onClick={() => {
                   setIsActive(false);
-                  setScale(option);
+                  setScale([option + ""]);
                 }}
               >
-                {option === isScale ? option + "%" + " " + "✔" : option + "%"}
+                {option === +isScale[0]
+                  ? option + "%" + " " + "✔"
+                  : option + "%"}
               </button>
             );
           })}
