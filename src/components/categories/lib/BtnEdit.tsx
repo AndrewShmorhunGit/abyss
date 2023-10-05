@@ -1,5 +1,6 @@
 import { EditIcon } from "@/components/icons/EditIcon";
 import { MouseEventHandler } from "react";
+
 export function BtnEdit({
   handler,
 }: {

@@ -1,27 +1,31 @@
 import styles from "@/app/styles/categories.module.scss";
-import { RootSubConnection, SubConnection } from "../lib/Connections";
+import { RootSubConnection } from "../lib/Connections";
 import { useState } from "react";
 import { BtnEdit } from "../lib/BtnEdit";
 import { BtnClose } from "../lib/BtnClose";
 import { Modal } from "@/components/modal/Modal";
 import { BtnPlus } from "../lib/BtnPlus";
 import { SubCategories } from "./SubCategories";
-import { SubCategoryForm } from "./SubCategoryForm";
 import { SubRootWrapper } from "./SubRootWrapper";
+import { useLocalStorageState } from "@/hooks/useLocalStorageState";
+
 export function SubCategory({
   category,
   palette,
+  deleteCategory,
 }: {
   category: string;
   palette: string;
+  deleteCategory: (category: string) => void;
 }) {
-  const [isModalOne, setModalOne] = useState(false);
-  const [isSubCategoriesOne, setSubCategoriesOne] = useState<string[]>([]);
-  const [isAddSubCategoryOne, setIsAddSubCategoryOne] = useState(false);
+  const [isModal, setModal] = useState(false);
+  const { state: isSubCategories, setState: setSubCategories } =
+    useLocalStorageState(`${category}/sub/categories`);
+  const [isAddSubCategory, setIsAddSubCategory] = useState(false);
 
-  const conditionOne =
-    isSubCategoriesOne.length > 1 ||
-    (isAddSubCategoryOne && isSubCategoriesOne.length >= 1);
+  const condition =
+    isSubCategories.length > 1 ||
+    (isAddSubCategory && isSubCategories.length >= 1);
 
   function SubCategoryBlock() {
     return (
@@ -34,13 +38,13 @@ export function SubCategory({
           <div className="relative">
             <BtnPlus
               handler={() => {
-                setModalOne(!isModalOne);
+                setModal(!isModal);
               }}
             />
-            {isModalOne && (
+            {isModal && (
               <Modal
-                setModal={setModalOne}
-                setIsAddSubCategory={setIsAddSubCategoryOne}
+                setModal={setModal}
+                setIsAddSubCategory={setIsAddSubCategory}
               />
             )}
           </div>
@@ -51,7 +55,7 @@ export function SubCategory({
           />
           <BtnClose
             handler={() => {
-              console.log("delete");
+              deleteCategory(category);
             }}
           />
         </div>
@@ -62,22 +66,20 @@ export function SubCategory({
   return (
     <div className="column" style={{ maxHeight: "0rem" }}>
       <SubCategoryBlock />
-      <SubRootWrapper
-        isAddSubCategory={isAddSubCategoryOne}
-        condition={conditionOne}
-      >
+      <SubRootWrapper isAddSubCategory={isAddSubCategory} condition={condition}>
         <RootSubConnection
-          isSubCategories={isSubCategoriesOne}
-          isAddSubCategory={isAddSubCategoryOne}
+          isSubCategories={isSubCategories}
+          isAddSubCategory={isAddSubCategory}
         />
       </SubRootWrapper>
-      {isSubCategoriesOne && (
+      {isSubCategories && (
         <SubCategories
-          isSubCategories={isSubCategoriesOne}
-          setSubCategories={setSubCategoriesOne}
-          isAddSubCategory={isAddSubCategoryOne}
-          setIsAddSubCategory={setIsAddSubCategoryOne}
-          condition={conditionOne}
+          isSubCategories={isSubCategories}
+          setSubCategories={setSubCategories}
+          isAddSubCategory={isAddSubCategory}
+          setIsAddSubCategory={setIsAddSubCategory}
+          condition={condition}
+          palette="lightgrey"
         />
       )}
     </div>

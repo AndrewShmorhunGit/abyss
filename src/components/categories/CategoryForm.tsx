@@ -14,11 +14,7 @@ export function CategoryForm() {
     return (
       <div style={{ maxHeight: "0rem" }}>
         <Connection />
-        <form
-          onSubmit={handleSubmit}
-          className="center"
-          style={{ gap: "0.4rem" }}
-        >
+        <form onSubmit={handleSubmit} className="center gap">
           <input
             ref={inputRef}
             type="text"

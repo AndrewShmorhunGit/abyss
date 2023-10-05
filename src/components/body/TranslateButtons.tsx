@@ -5,7 +5,7 @@ export function TranslateButtons() {
   return (
     <>
       {buttons.map((button) => (
-        <TranslateButton position={button} />
+        <TranslateButton key={button} position={button} />
       ))}
     </>
   );

@@ -1,3 +1,4 @@
+"use client";
 import styles from "@/app/styles/categories.module.scss";
 import { BtnClose } from "../lib/BtnClose";
 import { BtnSubmit } from "../lib/BtnSubmit";
@@ -29,7 +30,7 @@ export function SubCategoryForm({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubCategories([...isSubCategories, isName]);
+    setSubCategories([...isSubCategories, isName === "" ? "category" : isName]);
     setName("");
     setIsAddSubCategory(false);
     console.log("Category Name:", isName);
@@ -41,15 +42,21 @@ export function SubCategoryForm({
 
   if (isAddSubCategory)
     return (
-      <div style={{ maxHeight: "0rem" }}>
+      <div
+        style={{
+          maxHeight: "0rem",
+          paddingRight: "2rem",
+          transform: condition ? "translate(2rem,-1rem)" : "",
+        }}
+      >
         <SubConnection
           isSubCategories={isSubCategories}
           condition={condition}
         />
         <form
           onSubmit={handleSubmit}
-          className="center"
-          style={{ gap: "0.4rem" }}
+          className="center gap"
+          style={{ transform: condition ? "translateX(-1.2rem)" : "" }}
         >
           <input
             ref={inputRef}

@@ -8,6 +8,7 @@ import { Modal } from "../modal/Modal";
 import { useState } from "react";
 import { SubCategories } from "./sub/SubCategories";
 import { SubRootWrapper } from "./sub/SubRootWrapper";
+import { useLocalStorageState } from "@/hooks/useLocalStorageState";
 
 export function Category({
   category,
@@ -19,7 +20,9 @@ export function Category({
   const { deleteCategory } = useCategoryOperations();
 
   const [isModal, setModal] = useState(false);
-  const [isSubCategories, setSubCategories] = useState<string[]>([]);
+  const { state: isSubCategories, setState: setSubCategories } =
+    useLocalStorageState(`${category}/categories`);
+
   const [isAddSubCategory, setIsAddSubCategory] = useState(false);
 
   const condition =
@@ -78,6 +81,7 @@ export function Category({
           isSubCategories={isSubCategories}
           setSubCategories={setSubCategories}
           condition={condition}
+          palette="lightblue"
         />
       )}
     </div>

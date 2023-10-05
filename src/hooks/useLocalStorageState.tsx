@@ -1,21 +1,24 @@
+"use client";
 import React from "react";
 
 export function useLocalStorageState(
   key: string,
-  defaultValue: string[] | string = [],
+  defaultValue: string[] | string | Function = [],
 
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
+  const storage = global.localStorage;
+
   const [state, setState] = React.useState<string[]>(() => {
-    const valueInLocalStorage = global.localStorage.getItem(key);
+    const valueInLocalStorage = storage.getItem(key);
     if (valueInLocalStorage) {
       try {
         return deserialize(valueInLocalStorage);
       } catch (error) {
-        global.localStorage.removeItem(key);
+        storage.removeItem(key);
       }
     }
-    return defaultValue;
+    return typeof defaultValue === "function" ? defaultValue() : defaultValue;
   });
 
   const prevKeyRef = React.useRef(key);
@@ -23,10 +26,10 @@ export function useLocalStorageState(
   React.useEffect(() => {
     const prevKey = prevKeyRef.current;
     if (prevKey !== key) {
-      global.localStorage.removeItem(prevKey);
+      storage.removeItem(prevKey);
     }
     prevKeyRef.current = key;
-    global.localStorage.setItem(key, serialize(state));
+    storage.setItem(key, serialize(state));
   }, [key, state, serialize]);
 
   return { state, setState };
