@@ -1,4 +1,5 @@
 "use client";
+import styles from "@/app/styles/categories.module.scss";
 import { useCategoriesContext } from "@/providers/categories.context";
 
 export function RootConnection() {
@@ -6,35 +7,21 @@ export function RootConnection() {
   if (isAddCategory || isCategories.length >= 1) {
     return (
       <div className="center">
-        <div
-          style={{
-            height: "2rem",
-            width: "1px",
-            background: "lightgray",
-            transform: "translateX(-1.6rem)",
-          }}
-        ></div>
+        <div className={styles.connection_root}></div>
       </div>
     );
   }
 }
 
 export function Connection() {
-  const { isAddCategory, isCategories } = useCategoriesContext();
+  const { isCategories, condition } = useCategoriesContext();
   if (isCategories.length > 0) {
     return (
       <div className="center">
         <div
+          className={styles.connection}
           style={{
-            height:
-              isCategories.length > 1 ||
-              (isAddCategory && isCategories.length >= 1)
-                ? "2rem"
-                : "0rem",
-            width: "1px",
-            background: "lightgray",
-            transform: "translateX(-4rem)",
-            transition: "height .4s linear",
+            height: condition ? "2rem" : "0rem",
           }}
         ></div>
       </div>

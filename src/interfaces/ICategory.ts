@@ -5,4 +5,5 @@ export interface ICategoryParams {
   setIsAddCategory: React.Dispatch<React.SetStateAction<boolean>>;
   isName: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
+  condition: boolean;
 }

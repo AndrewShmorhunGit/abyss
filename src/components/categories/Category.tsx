@@ -10,19 +10,20 @@ import { useState } from "react";
 export function Category({ category }: { category: string }) {
   const { deleteCategory } = useCategoryOperations();
   const [isModal, setModal] = useState(false);
-
+  const [isSubCategories, setSubCategories] = useState<string[]>([]);
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="column">
       <Connection />
-      <div className="space-between" style={{ gap: "0.4rem" }}>
+      <div className="space-between gap">
         <div className={styles.category}>{category}</div>
-        <div className="center" style={{ gap: "0.4rem" }}>
-          <div style={{ position: "relative" }}>
+        <div className="center gap">
+          <div className="relative">
             <BtnPlus
               handler={() => {
                 setModal(!isModal);
               }}
             />
+            {isModal && <Modal setModal={setModal} />}
           </div>
           <BtnEdit
             handler={() => {
@@ -36,7 +37,6 @@ export function Category({ category }: { category: string }) {
           />
         </div>
       </div>
-      {isModal && <Modal setModal={setModal} />}
     </div>
   );
 }

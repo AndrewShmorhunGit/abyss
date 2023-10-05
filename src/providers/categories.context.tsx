@@ -14,7 +14,8 @@ export function CategoriesContextProvider({
     useLocalStorageState("categories");
   const [isName, setName] = useState("");
   const [isAddCategory, setIsAddCategory] = useState(false);
-
+  const condition =
+    isCategories.length > 1 || (isAddCategory && isCategories.length >= 1);
   return (
     <CategoriesContext.Provider
       value={{
@@ -24,6 +25,7 @@ export function CategoriesContextProvider({
         setIsAddCategory,
         isName,
         setName,
+        condition,
       }}
     >
       {children}

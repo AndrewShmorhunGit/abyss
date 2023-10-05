@@ -6,7 +6,7 @@ export function BtnEdit({
   handler: MouseEventHandler<HTMLDivElement>;
 }) {
   return (
-    <div style={{ cursor: "pointer" }} onClick={handler}>
+    <div className="pointer" onClick={handler}>
       <EditIcon />
     </div>
   );

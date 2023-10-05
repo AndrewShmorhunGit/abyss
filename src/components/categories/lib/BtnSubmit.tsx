@@ -9,11 +9,7 @@ export function BtnSubmit() {
         border: "none",
       }}
     >
-      <IoIosCheckmarkCircle
-        size={24}
-        color={"green"}
-        style={{ cursor: "pointer" }}
-      />
+      <IoIosCheckmarkCircle size={24} color={"green"} className="pointer" />
     </button>
   );
 }

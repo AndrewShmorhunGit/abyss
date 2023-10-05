@@ -1,9 +1,10 @@
 .container {
+  overflow-x: "hidden";
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 100vw;
-  min-height: 30rem;
+  width: 100vw;
+  // min-height: 30rem;
   gap: 2.4rem;
 }
 
@@ -43,9 +44,16 @@
   left: 0;
   cursor: grab;
 }
+.connection {
+  width: 1px;
+  background: lightgray;
+  transform: translateX(-4rem);
+  transition: height 0.4s linear;
+}
 
-// .connection {
-//   border-bottom: "1px lightgrey solid";
-//   margin-left: 6rem;
-//   margin-right: 2rem;
-// }
+.connection_root {
+  height: 2rem;
+  width: 1px;
+  background: lightgray;
+  transform: translateX(-1.6rem);
+}

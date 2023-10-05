@@ -3,21 +3,14 @@ import styles from "@/app/styles/categories.module.scss";
 import { BtnPlus } from "./lib/BtnPlus";
 import { useCategoriesContext } from "@/providers/categories.context";
 import { RootConnection } from "./lib/Connections";
+import { ReactNode } from "react";
 
 export function CategoriesRoot() {
-  const { setIsAddCategory, isAddCategory, isCategories } =
-    useCategoriesContext();
-  const condition =
-    isCategories.length > 1 || (isAddCategory && isCategories.length >= 1);
+  const { setIsAddCategory } = useCategoriesContext();
+
   return (
-    <div
-      style={{
-        borderBottom: condition ? "1px lightgrey solid" : "none",
-        marginLeft: "9rem",
-        marginRight: isAddCategory ? "15.8rem" : "17rem",
-      }}
-    >
-      <div className="center" style={{ gap: "0.4rem" }}>
+    <RootWrapper>
+      <div className="center gap">
         <div>
           <div className={styles.categories}>Categories</div>
         </div>
@@ -28,6 +21,21 @@ export function CategoriesRoot() {
         />
       </div>
       <RootConnection />
+    </RootWrapper>
+  );
+}
+
+function RootWrapper({ children }: { children: ReactNode }) {
+  const { isAddCategory, condition } = useCategoriesContext();
+  return (
+    <div
+      style={{
+        marginRight: isAddCategory ? "15.8rem" : "17rem",
+        borderBottom: condition ? "1px lightgrey solid" : "none",
+        marginLeft: "9rem",
+      }}
+    >
+      {children}
     </div>
   );
 }

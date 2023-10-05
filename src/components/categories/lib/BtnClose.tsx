@@ -4,9 +4,9 @@ export function BtnClose({ handler }: { handler: Function }) {
   return (
     <div>
       <AiFillCloseCircle
+        className="pointer"
         size={24}
         color={"red"}
-        style={{ cursor: "pointer" }}
         onClick={handler}
       />
     </div>
