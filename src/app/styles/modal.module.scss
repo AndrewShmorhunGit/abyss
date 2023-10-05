@@ -1,0 +1,25 @@
+.modal {
+  position: absolute;
+  top: 32rem;
+  transform: translateX(18rem);
+  width: 32rem;
+  height: auto;
+  padding: 4rem;
+  background: white;
+  border-radius: 0.8rem;
+  box-shadow: 4px 3px 2px rgba(211, 211, 211, 0.5);
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 2.4rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: grey;
+  cursor: pointer;
+}

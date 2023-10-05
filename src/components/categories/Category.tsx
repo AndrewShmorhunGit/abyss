@@ -4,9 +4,12 @@ import { BtnClose } from "./lib/BtnClose";
 import { BtnEdit } from "./lib/BtnEdit";
 import { Connection } from "./lib/Connections";
 import { useCategoryOperations } from "@/hooks/useCategoryOperations";
+import { Modal } from "../modal/Modal";
+import { useState } from "react";
 
 export function Category({ category }: { category: string }) {
   const { deleteCategory } = useCategoryOperations();
+  const [isModal, setModal] = useState(false);
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -14,11 +17,13 @@ export function Category({ category }: { category: string }) {
       <div className="space-between" style={{ gap: "0.4rem" }}>
         <div className={styles.category}>{category}</div>
         <div className="center" style={{ gap: "0.4rem" }}>
-          <BtnPlus
-            handler={() => {
-              console.log("plus");
-            }}
-          />
+          <div style={{ position: "relative" }}>
+            <BtnPlus
+              handler={() => {
+                setModal(!isModal);
+              }}
+            />
+          </div>
           <BtnEdit
             handler={() => {
               console.log("edit");
@@ -31,6 +36,7 @@ export function Category({ category }: { category: string }) {
           />
         </div>
       </div>
+      {isModal && <Modal setModal={setModal} />}
     </div>
   );
 }
