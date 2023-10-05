@@ -15,7 +15,7 @@ export function CategoriesBox({
       ref={forwardedRef}
       className={styles.box}
       style={{
-        transform: `scale(${isScale / 100})`,
+        transform: `scale(${+isScale[0] / 100})`,
       }}
     >
       {children}
