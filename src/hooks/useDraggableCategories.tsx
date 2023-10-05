@@ -1,9 +1,19 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useTranslateContext } from "@/providers/translate.context";
+import { useEffect, useRef, useState } from "react";
 
 export const useDraggableCategories = () => {
+  const { isPosition, setPosition } = useTranslateContext();
   const containerRef = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    console.log(isPosition);
+    if (boxRef.current) {
+      console.log("width:", boxRef.current.offsetWidth);
+      console.log(window.innerWidth);
+    }
+  }, [isPosition]);
 
   const isClicked = useRef<boolean>(false);
 
@@ -25,6 +35,13 @@ export const useDraggableCategories = () => {
     const box = boxRef.current;
     const container = containerRef.current;
 
+    box.style.top = `${box.offsetTop / 1.03}px`;
+    box.style.left = `${box.offsetLeft / 1.03}px`;
+    coords.current.startX = isPosition.x;
+    coords.current.startY = isPosition.y;
+    coords.current.lastX = box.offsetLeft;
+    coords.current.lastY = box.offsetTop;
+
     const onMouseDown = (e: MouseEvent) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
@@ -42,6 +59,7 @@ export const useDraggableCategories = () => {
 
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
+      // setPosition({ x: nextX, y: nextY });
 
       box.style.top = `${nextY}px`;
       box.style.left = `${nextX}px`;
@@ -60,6 +78,6 @@ export const useDraggableCategories = () => {
     };
 
     return cleanup;
-  }, []);
+  }, [isPosition]);
   return { containerRef, boxRef };
 };

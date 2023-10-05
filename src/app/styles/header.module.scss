@@ -31,6 +31,9 @@
   background-color: white;
   border: none;
   text-transform: uppercase;
+  &:hover {
+    background: lightgray;
+  }
 }
 .hover {
   width: 6.8rem;
@@ -42,6 +45,9 @@
 .primary {
   background: #6977e2;
   color: white;
+  &:hover {
+    background: #545fb5;
+  }
 }
 
 .dropdown {

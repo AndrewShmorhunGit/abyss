@@ -6,6 +6,9 @@
   background: #c6cfda;
   z-index: 2;
   cursor: pointer;
+  &:hover {
+    background: gray;
+  }
 }
 
 .top {
