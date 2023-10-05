@@ -3,8 +3,11 @@ import { BtnPlus } from "./lib/BtnPlus";
 import { BtnClose } from "./lib/BtnClose";
 import { BtnEdit } from "./lib/BtnEdit";
 import { Connection } from "./lib/Connections";
+import { useCategoryOperations } from "@/hooks/useCategoryOperations";
 
 export function Category({ category }: { category: string }) {
+  const { deleteCategory } = useCategoryOperations();
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Connection />
@@ -13,7 +16,7 @@ export function Category({ category }: { category: string }) {
         <div className="center" style={{ gap: "0.4rem" }}>
           <BtnPlus
             handler={() => {
-              console.log("hi");
+              console.log("plus");
             }}
           />
           <BtnEdit
@@ -23,7 +26,7 @@ export function Category({ category }: { category: string }) {
           />
           <BtnClose
             handler={() => {
-              console.log("close");
+              deleteCategory(category);
             }}
           />
         </div>

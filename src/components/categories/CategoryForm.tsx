@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import styles from "@/app/styles/categories.module.scss";
 import { BtnClose } from "./lib/BtnClose";
@@ -6,14 +7,8 @@ import { useCategoryForm } from "@/hooks/useCategoryForm";
 import { Connection } from "./lib/Connections";
 
 export function CategoryForm() {
-  const {
-    isAddCategory,
-
-    setIsAddCategory,
-    inputRef,
-    handleSubmit,
-    onChange,
-  } = useCategoryForm();
+  const { isAddCategory, setIsAddCategory, inputRef, handleSubmit, onChange } =
+    useCategoryForm();
 
   if (isAddCategory)
     return (

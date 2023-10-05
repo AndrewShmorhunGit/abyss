@@ -5,7 +5,7 @@ export function BtnClose({ handler }: { handler: Function }) {
     <div>
       <AiFillCloseCircle
         size={24}
-        color={"orange"}
+        color={"red"}
         style={{ cursor: "pointer" }}
         onClick={handler}
       />

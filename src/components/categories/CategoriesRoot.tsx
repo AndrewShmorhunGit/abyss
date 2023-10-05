@@ -5,11 +5,16 @@ import { useCategoriesContext } from "@/providers/categories.context";
 import { RootConnection } from "./lib/Connections";
 
 export function CategoriesRoot() {
-  const { setIsAddCategory, isCategories } = useCategoriesContext();
+  const { setIsAddCategory, isAddCategory, isCategories } =
+    useCategoriesContext();
+  const condition =
+    isCategories.length > 1 || (isAddCategory && isCategories.length >= 1);
   return (
     <div
       style={{
-        borderBottom: isCategories.length > 1 ? "1px red solid" : "none",
+        borderBottom: condition ? "1px lightgrey solid" : "none",
+        marginLeft: "9rem",
+        marginRight: isAddCategory ? "15.8rem" : "17rem",
       }}
     >
       <div className="center" style={{ gap: "0.4rem" }}>

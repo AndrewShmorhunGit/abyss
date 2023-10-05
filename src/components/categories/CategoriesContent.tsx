@@ -1,10 +1,10 @@
 "use client";
 import { CategoryForm } from "./CategoryForm";
 import { Category } from "./Category";
-import { useCategoryForm } from "@/hooks/useCategoryForm";
+import { useCategoriesContext } from "@/providers/categories.context";
 
 export function CategoriesContent() {
-  const { isCategories } = useCategoryForm();
+  const { isCategories } = useCategoriesContext();
   return (
     <div className="center" style={{ flexDirection: "row", gap: "5rem" }}>
       {isCategories.length !== 0 &&
