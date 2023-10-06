@@ -1,5 +1,4 @@
 "use client";
-import { IScaleParams } from "@/interfaces/IScale";
 import {
   Dispatch,
   ReactNode,

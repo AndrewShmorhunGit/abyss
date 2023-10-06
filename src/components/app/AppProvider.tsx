@@ -1,3 +1,4 @@
+"use client";
 import { CategoriesContextProvider } from "@/providers/categories.context";
 import { ScaleContextProvider } from "@/providers/scale.context";
 import { TranslateContextProvider } from "@/providers/translate.context";

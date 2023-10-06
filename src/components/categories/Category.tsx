@@ -1,3 +1,4 @@
+"use client";
 import styles from "@/app/styles/categories.module.scss";
 import { BtnPlus } from "./lib/BtnPlus";
 import { BtnClose } from "./lib/BtnClose";

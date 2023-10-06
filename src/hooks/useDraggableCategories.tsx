@@ -1,4 +1,3 @@
-"use client";
 import { useTranslateContext } from "@/providers/translate.context";
 import { useEffect, useRef, useState } from "react";
 

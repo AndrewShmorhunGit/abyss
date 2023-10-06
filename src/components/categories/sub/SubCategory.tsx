@@ -1,3 +1,4 @@
+"use client";
 import styles from "@/app/styles/categories.module.scss";
 import { RootSubConnection } from "../lib/Connections";
 import { useState } from "react";

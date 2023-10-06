@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode } from "react";
 import styles from "@/app/styles/categories.module.scss";
 import { useScaleContext } from "@/providers/scale.context";
