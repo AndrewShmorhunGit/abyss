@@ -8,14 +8,15 @@ export function useLocalStorageState(
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
   const storage = global.localStorage;
-
   const [state, setState] = React.useState<string[]>(() => {
-    const valueInLocalStorage = storage.getItem(key);
-    if (valueInLocalStorage) {
-      try {
-        return deserialize(valueInLocalStorage);
-      } catch (error) {
-        storage.removeItem(key);
+    if (storage) {
+      const valueInLocalStorage = storage.getItem(key);
+      if (valueInLocalStorage) {
+        try {
+          return deserialize(valueInLocalStorage);
+        } catch (error) {
+          storage.removeItem(key);
+        }
       }
     }
     return typeof defaultValue === "function" ? defaultValue() : defaultValue;
