@@ -3,17 +3,9 @@ import { useTranslateContext } from "@/providers/translate.context";
 import { useEffect, useRef, useState } from "react";
 
 export const useDraggableCategories = () => {
-  const { isPosition, setPosition } = useTranslateContext();
+  const { isPosition } = useTranslateContext();
   const containerRef = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    console.log(isPosition);
-    if (boxRef.current) {
-      console.log("width:", boxRef.current.offsetWidth);
-      console.log(window.innerWidth);
-    }
-  }, [isPosition]);
 
   const isClicked = useRef<boolean>(false);
 
@@ -59,7 +51,6 @@ export const useDraggableCategories = () => {
 
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
-      // setPosition({ x: nextX, y: nextY });
 
       box.style.top = `${nextY}px`;
       box.style.left = `${nextX}px`;

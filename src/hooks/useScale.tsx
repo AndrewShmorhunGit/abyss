@@ -4,9 +4,7 @@ import { useLocalStorageState } from "./useLocalStorageState";
 
 export const useScale = (): IScaleParams => {
   const [isActive, setIsActive] = React.useState(false);
-  const { state: isScale, setState: setScale } = useLocalStorageState("scale", [
-    "100",
-  ]);
+  const [isScale, setScale] = React.useState(["100"]);
 
   return { isScale, setScale, isActive, setIsActive };
 };
