@@ -21,7 +21,7 @@ export function SubCategory({
 }) {
   const [isModal, setModal] = useState(false);
   const { state: isSubCategories, setState: setSubCategories } =
-    useLocalStorageState(`${category}/sub/categories`);
+    useLocalStorageState<string[]>(`${category}/sub/categories`, []);
   const [isAddSubCategory, setIsAddSubCategory] = useState(false);
 
   const condition =

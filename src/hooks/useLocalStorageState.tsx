@@ -1,14 +1,18 @@
-"use client";
 import React from "react";
 
-export function useLocalStorageState(
+export function useLocalStorageState<T>(
   key: string,
-  defaultValue: string[] | string | number | Function = [],
-
-  { serialize = JSON.stringify, deserialize = JSON.parse } = {}
+  defaultValue: T | (() => T),
+  {
+    serialize = JSON.stringify,
+    deserialize = JSON.parse,
+  }: {
+    serialize?: (value: T) => string;
+    deserialize?: (value: string) => T;
+  } = {}
 ) {
   const storage = global.localStorage;
-  const [state, setState] = React.useState<string[]>(() => {
+  const [state, setState] = React.useState<T>(() => {
     if (storage) {
       const valueInLocalStorage = storage.getItem(key);
       if (valueInLocalStorage) {
@@ -19,6 +23,7 @@ export function useLocalStorageState(
         }
       }
     }
+    // @ts-ignore
     return typeof defaultValue === "function" ? defaultValue() : defaultValue;
   });
 

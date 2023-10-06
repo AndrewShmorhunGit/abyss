@@ -10,8 +10,9 @@ export function CategoriesContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const { state: isCategories, setState: setCategories } =
-    useLocalStorageState("categories");
+  const { state: isCategories, setState: setCategories } = useLocalStorageState<
+    string[]
+  >("categories", []);
   const [isName, setName] = useState("");
   const [isAddCategory, setIsAddCategory] = useState(false);
   const condition =

@@ -22,7 +22,7 @@ export function Category({
 
   const [isModal, setModal] = useState(false);
   const { state: isSubCategories, setState: setSubCategories } =
-    useLocalStorageState(`${category}/categories`);
+    useLocalStorageState<string[]>(`${category}/categories`, []);
 
   const [isAddSubCategory, setIsAddSubCategory] = useState(false);
 
