@@ -1,3 +1,5 @@
+@import "themes.scss";
+
 .services {
   gap: 1.2rem;
   font-size: 2rem;
@@ -62,4 +64,54 @@
 
 .hide {
   display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 7rem;
+  height: 4rem;
+  margin: 0 1rem;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 1px solid lightgrey;
+  transition: 0.5s;
+  border-radius: 4rem;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 2.9rem;
+  width: 2.9rem;
+  left: 0.5rem;
+  bottom: 0.25rem;
+  background: white;
+  border: 2px solid grey;
+  border-radius: 5rem;
+  transition: 0.5s;
+}
+
+input:checked + .slider {
+  background-color: $btn-bg-primary;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.4rem);
+  background-color: white;
+}
+
+input + .slider:before {
+  background-color: $btn-bg-primary;
 }
