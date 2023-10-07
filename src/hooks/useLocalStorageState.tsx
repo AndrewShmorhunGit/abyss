@@ -18,13 +18,14 @@ export function useLocalStorageState<T>(
       if (valueInLocalStorage) {
         try {
           return deserialize(valueInLocalStorage);
-        } catch (error) {
+        } catch (_error) {
           storage.removeItem(key);
         }
       }
     }
-    // @ts-ignore
-    return typeof defaultValue === "function" ? defaultValue() : defaultValue;
+    return typeof defaultValue === "function"
+      ? (defaultValue as () => T)()
+      : defaultValue;
   });
 
   const prevKeyRef = React.useRef(key);

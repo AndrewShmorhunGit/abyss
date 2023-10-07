@@ -9,7 +9,11 @@ export function CategoriesContainer({
   forwardedRef: React.RefObject<HTMLDivElement>;
 }) {
   return (
-    <div ref={forwardedRef} className={`center${" " + styles.container}`}>
+    <div
+      ref={forwardedRef}
+      className={`center${" " + styles.container}`}
+      data-testid="categories"
+    >
       {children}
     </div>
   );

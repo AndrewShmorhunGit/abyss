@@ -7,7 +7,10 @@ export function TranslateButton({
   position: "top" | "right" | "bottom" | "left";
 }) {
   return (
-    <button className={`center absolute ${styles.btn} ${styles[position]}`}>
+    <button
+      className={`center absolute ${styles.btn} ${styles[position]}`}
+      data-testid="translate-button"
+    >
       <RiArrowUpSLine size={24} fill={"white"} />
     </button>
   );
