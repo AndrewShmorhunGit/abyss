@@ -8,6 +8,7 @@ export const useCategoryOperations = () => {
       (isCategory) => isCategory !== category
     );
     setCategories(newCategories);
+    localStorage.removeItem(`${category}/categories`);
   };
 
   return { deleteCategory };

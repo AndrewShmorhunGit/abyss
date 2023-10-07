@@ -1,5 +1,5 @@
 import { useTranslateContext } from "@/providers/translate.context";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export const useDraggableCategories = () => {
   const { isPosition } = useTranslateContext();

@@ -17,11 +17,12 @@ export function SubCategories({
   condition: boolean;
   palette: string;
 }) {
-  const deleteCategory = (category: string) => {
+  const deleteSubCategory = (category: string) => {
     const newCategories = isSubCategories.filter(
       (isCategory) => isCategory !== category
     );
     setSubCategories(newCategories);
+    localStorage.removeItem(`${category}/sub/categories`);
   };
 
   return (
@@ -37,7 +38,7 @@ export function SubCategories({
               <SubCategory
                 category={sub}
                 palette={palette}
-                deleteCategory={deleteCategory}
+                deleteCategory={deleteSubCategory}
               />
             </div>
           );
