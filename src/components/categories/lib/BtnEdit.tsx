@@ -7,7 +7,7 @@ export function BtnEdit({
   handler: MouseEventHandler<HTMLDivElement>;
 }) {
   return (
-    <div className="pointer" onClick={handler}>
+    <div className="pointer" onClick={handler} role="button">
       <EditIcon />
     </div>
   );

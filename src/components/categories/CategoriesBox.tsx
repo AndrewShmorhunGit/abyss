@@ -18,6 +18,7 @@ export function CategoriesBox({
       style={{
         transform: `scale(${+isScale[0] / 100})`,
       }}
+      data-testid="categories-box"
     >
       {children}
     </div>

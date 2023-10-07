@@ -12,7 +12,7 @@ export function CategoryForm() {
 
   if (isAddCategory)
     return (
-      <div style={{ maxHeight: "0rem" }}>
+      <div style={{ maxHeight: "0rem" }} data-testid="category-form">
         <Connection />
         <form onSubmit={handleSubmit} className="center gap">
           <input
@@ -21,6 +21,7 @@ export function CategoryForm() {
             placeholder={"Category Name"}
             onChange={onChange}
             className={styles.input}
+            data-testid="category-input"
           />
           <BtnClose
             handler={() => {

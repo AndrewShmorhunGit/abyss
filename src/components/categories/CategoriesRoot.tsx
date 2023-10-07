@@ -34,6 +34,7 @@ function RootWrapper({ children }: { children: ReactNode }) {
         borderBottom: condition ? "1px lightgrey solid" : "none",
         marginLeft: "9rem",
       }}
+      data-testid="categories-root"
     >
       {children}
     </div>
