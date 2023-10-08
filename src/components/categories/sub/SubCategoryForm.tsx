@@ -52,6 +52,7 @@ export function SubCategoryForm({
         <SubConnection
           isSubCategories={isSubCategories}
           condition={condition}
+          subCategory={""}
         />
         <form
           onSubmit={handleSubmit}
