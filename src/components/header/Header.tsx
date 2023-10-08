@@ -1,7 +1,7 @@
 import { ServicesCounter } from "./ServicesCounter";
-import { HeaderWrapper } from "./Wrappers";
+import { HeaderWrapper } from "./containers/Wrappers";
 import React from "react";
-import { ButtonsBlock } from "./ButtonsBlock";
+import { ButtonsBlock } from "./buttons/ButtonsBlock";
 
 export function Header() {
   return (

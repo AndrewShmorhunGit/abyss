@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/app/styles/categories.module.scss";
-import { useCategoriesContext } from "@/providers/categories.context";
-import { useThemeContext } from "@/providers/theme.context";
+import { useCategoriesContext } from "@/context/categories.context";
+import { useThemeContext } from "@/context/theme.context";
 
 export function RootConnection() {
   const { isAddCategory, isCategories } = useCategoriesContext();

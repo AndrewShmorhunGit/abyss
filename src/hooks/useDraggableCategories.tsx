@@ -1,4 +1,4 @@
-import { useTranslateContext } from "@/providers/translate.context";
+import { useTranslateContext } from "@/context/translate.context";
 import { useEffect, useRef } from "react";
 
 export const useDraggableCategories = () => {

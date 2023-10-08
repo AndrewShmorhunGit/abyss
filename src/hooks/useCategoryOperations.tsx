@@ -1,4 +1,4 @@
-import { useCategoriesContext } from "@/providers/categories.context";
+import { useCategoriesContext } from "@/context/categories.context";
 
 export const useCategoryOperations = () => {
   const { setCategories, isCategories } = useCategoriesContext();
