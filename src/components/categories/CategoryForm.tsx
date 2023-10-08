@@ -13,7 +13,7 @@ export function CategoryForm() {
   if (isAddCategory)
     return (
       <div style={{ maxHeight: "0rem" }} data-testid="category-form">
-        <Connection />
+        <Connection category={""} />
         <form onSubmit={handleSubmit} className="center gap">
           <input
             ref={inputRef}
