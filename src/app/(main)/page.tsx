@@ -1,5 +1,5 @@
-import { Body } from "@/components/body/Body";
+import { CategoriesPage } from "@/components/pages/CategoriesPage";
 
 export default function Home() {
-  return <Body />;
+  return <CategoriesPage />;
 }

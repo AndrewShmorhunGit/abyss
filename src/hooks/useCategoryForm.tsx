@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useCategoriesContext } from "@/providers/categories.context";
+import { useCategoriesContext } from "@/context/categories.context";
 
 export const useCategoryForm = () => {
   const {

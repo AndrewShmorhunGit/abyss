@@ -1,6 +1,7 @@
 import styles from "@/app/styles/modal.module.scss";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import React, { Dispatch, SetStateAction } from "react";
+import { ModalButton } from "./buttons/ModalButton";
 
 export function Modal({
   setModal,
@@ -26,19 +27,5 @@ export function Modal({
         <ModalButton title={"service"} handler={() => console.log("service")} />
       </div>
     </div>
-  );
-}
-
-export function ModalButton({
-  title,
-  handler,
-}: {
-  title: string;
-  handler: React.MouseEventHandler<HTMLButtonElement>;
-}) {
-  return (
-    <button className={styles.btn} onClick={handler}>
-      {title}
-    </button>
   );
 }
