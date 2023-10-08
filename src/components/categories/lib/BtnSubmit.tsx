@@ -7,6 +7,7 @@ export function BtnSubmit() {
       style={{
         background: "transparent",
         border: "none",
+        transform: "translateY(1.5px)",
       }}
       data-testid="submit-button"
       title="submit"

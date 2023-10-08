@@ -1,29 +1,12 @@
 "use client";
 import styles from "@/app/styles/header.module.scss";
-import { useLocalStorageState } from "@/hooks/useLocalStorageState";
-import { useEffect } from "react";
 import { MdDarkMode } from "react-icons/md";
 import { BsFillSunFill } from "react-icons/bs";
+import { useThemeContext } from "@/providers/theme.context";
 
 export function ThemeButton() {
-  const { state: isMode, setState: setMode } = useLocalStorageState<string>(
-    "mode",
-    "light"
-  );
-
-  useEffect(() => {
-    if (isMode === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    isMode === "light" ? setMode("dark") : setMode("light");
-    document.documentElement.classList.toggle("dark");
-    console.log(isMode);
-  };
-
-  const style = {};
+  const { toggleTheme, checkTheme, isLightTheme } = useThemeContext();
+  const style = { position: "absolute", top: "1rem" };
 
   return (
     <label className={styles.switch}>
@@ -31,21 +14,15 @@ export function ThemeButton() {
         className="relative"
         type="checkbox"
         name="theme"
-        checked={isMode === "light" ? false : true}
+        checked={checkTheme}
         onChange={toggleTheme}
       />
 
       <span className={styles.slider}></span>
-      {isMode === "light" ? (
-        <MdDarkMode
-          style={{ position: "absolute", right: "0.5rem", top: "1rem" }}
-          size={20}
-        />
+      {isLightTheme ? (
+        <MdDarkMode style={{ ...style, right: "0.5rem" }} size={20} />
       ) : (
-        <BsFillSunFill
-          style={{ position: "absolute", left: "0.5rem", top: "1rem" }}
-          size={20}
-        />
+        <BsFillSunFill style={{ ...style, left: "0.5rem" }} size={20} />
       )}
     </label>
   );

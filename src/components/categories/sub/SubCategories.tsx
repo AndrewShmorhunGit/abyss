@@ -34,6 +34,7 @@ export function SubCategories({
               <SubConnection
                 isSubCategories={isSubCategories}
                 condition={condition}
+                subCategory={sub}
               />
               <SubCategory
                 category={sub}

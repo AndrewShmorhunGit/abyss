@@ -66,6 +66,8 @@
   display: none;
 }
 
+// SWITCH //
+
 .switch {
   position: relative;
   display: inline-block;
@@ -95,10 +97,10 @@
   content: "";
   height: 2.9rem;
   width: 2.9rem;
-  left: 0.5rem;
-  bottom: 0.25rem;
+  left: 0.3rem;
+  bottom: 0.4rem;
   background: white;
-  border: 2px solid grey;
+  border: 1px solid grey;
   border-radius: 5rem;
   transition: 0.5s;
 }
@@ -108,10 +110,13 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(2.4rem);
+  // Fix translate X for responsive design
+  transform: translateX(3.2rem);
   background-color: white;
 }
 
 input + .slider:before {
   background-color: $btn-bg-primary;
 }
+
+////////////////////////////////////

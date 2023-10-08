@@ -18,7 +18,7 @@ export function CategoryForm() {
           <input
             ref={inputRef}
             type="text"
-            placeholder={"Category Name"}
+            placeholder={"category name"}
             onChange={onChange}
             className={styles.input}
             data-testid="category-input"

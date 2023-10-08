@@ -3,7 +3,7 @@ import styles from "@/app/styles/categories.module.scss";
 import { BtnPlus } from "./lib/BtnPlus";
 import { BtnClose } from "./lib/BtnClose";
 import { BtnEdit } from "./lib/BtnEdit";
-import { Connection, RootSubConnection } from "./lib/Connections";
+import { Connection, Cover, RootSubConnection } from "./lib/Connections";
 import { useCategoryOperations } from "@/hooks/useCategoryOperations";
 import { Modal } from "../modal/Modal";
 import { useState } from "react";
@@ -67,7 +67,7 @@ export function Category({
 
   return (
     <div className="column" style={{ maxHeight: "0rem" }}>
-      <Connection />
+      <Connection category={category} />
       <CategoryBlock />
       <SubRootWrapper isAddSubCategory={isAddSubCategory} condition={condition}>
         <RootSubConnection
