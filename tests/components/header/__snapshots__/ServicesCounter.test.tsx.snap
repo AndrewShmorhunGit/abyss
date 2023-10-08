@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServicesCounter Component matches the snapshot 1`] = `
+<div
+  className="center mocked-services-class"
+>
+  <p>
+    Services
+  </p>
+  <div
+    className="mocked-amount-class"
+  >
+    <span>
+      0
+    </span>
+  </div>
+</div>
+`;
+
+exports[`matches the snapshot 1`] = `
+<div
+  className="center services"
+>
+  <p>
+    Services
+  </p>
+  <div
+    className="amount"
+  >
+    <span>
+      0
+    </span>
+  </div>
+</div>
+`;

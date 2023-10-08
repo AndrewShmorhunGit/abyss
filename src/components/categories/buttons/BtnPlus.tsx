@@ -4,7 +4,7 @@ export function BtnPlus({ handler }: { handler: Function }) {
   return (
     <div>
       <AiFillPlusCircle
-        style={{ transform: " translateY(1px)" }}
+        style={{ transform: "translateY(1px)" }}
         className="pointer"
         size={24}
         color={"lightgrey"}

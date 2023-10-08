@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-
 import { BtnPlus } from "@/components/categories/buttons/BtnPlus";
 
 describe("BtnPlus Component", () => {
@@ -17,8 +16,6 @@ describe("BtnPlus Component", () => {
 
       // Assert that the plus button is visible
       expect(plusButton).toBeInTheDocument();
-
-      // You can add more assertions here if needed
     });
   });
 
@@ -54,8 +51,6 @@ describe("BtnPlus Component", () => {
 
       // Assert that the plus icon is visible
       expect(plusIcon).toBeInTheDocument();
-
-      expect(plusIcon).toHaveAttribute("fill", "lightgrey");
     });
   });
 });

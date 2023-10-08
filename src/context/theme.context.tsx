@@ -18,7 +18,7 @@ export function ThemeContextProvider({ children }: { children: ReactNode }) {
     <ThemeContext.Provider
       value={{ isMode, setMode, toggleTheme, checkTheme, isLightTheme }}
     >
-      {isMode ? children : "loading"}
+      {isMode && children}
     </ThemeContext.Provider>
   );
 }

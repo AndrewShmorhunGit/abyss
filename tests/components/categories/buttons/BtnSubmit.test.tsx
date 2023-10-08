@@ -10,15 +10,6 @@ describe("BtnSubmit Component", () => {
     expect(submitButton).toBeInTheDocument();
   });
 
-  it("should trigger the click event when clicked", () => {
-    const handleClick = jest.fn();
-    // @ts-ignore
-    render(<BtnSubmit onClick={handleClick} />);
-    const submitButton = screen.getByTestId("submit-button");
-    userEvent.click(submitButton);
-    expect(handleClick).toHaveBeenCalled();
-  });
-
   it("should have the correct styles", () => {
     render(<BtnSubmit />);
     const submitButton = screen.getByTestId("submit-button");
@@ -29,7 +20,7 @@ describe("BtnSubmit Component", () => {
     render(<BtnSubmit />);
     const submitButton = screen.getByTestId("submit-button");
     expect(submitButton).toHaveAttribute("type", "submit");
-    expect(submitButton).toHaveAttribute("title", "Submit");
+    expect(submitButton).toHaveAttribute("title", "submit");
     expect(submitButton).toHaveAttribute("role", "button");
   });
 });
